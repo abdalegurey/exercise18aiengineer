@@ -1,7 +1,7 @@
 // app/api/inngest/route.ts
 import { serve } from "inngest/next";
 import { inngest } from "../../inngest/client";
-import { dataProcessor, emailSender } from "@/app/inngest/functions/functions";
+import { approvalWorkflow, dataProcessor, emailSender } from "@/app/inngest/functions/functions";
 // We'll add functions here as we create them
 
 export const { GET, POST, PUT } = serve({
@@ -9,6 +9,8 @@ export const { GET, POST, PUT } = serve({
   functions: [
     // Functions will be added here
     dataProcessor,
-    emailSender
+    emailSender,
+    approvalWorkflow
+
   ],
 });
